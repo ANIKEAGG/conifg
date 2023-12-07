@@ -1,0 +1,17 @@
+server:
+  port: 7777
+  servlet:
+    context-path: /sme_customer
+spring:
+  application:
+    name: customer-management-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/sme_customer?createDatabaseIfNotExist=true
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  jackson:
+    default-property-inclusion: non-null

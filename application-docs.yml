@@ -1,0 +1,62 @@
+server:
+  port: 8765
+  servlet:
+    context-path: /documentverification
+spring:
+    application:
+        name: documentverification
+#    datasource:
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://localhost:3306/DocumentsDb?createDatabaseIfNotExist=true
+#        password: root
+#        username: root
+#    jpa:
+#        generate-ddl: true
+#        hibernate:
+#            ddl-auto: update
+#        properties:
+#            hibernate:
+#                dialect: org.hibernate.dialect.MySQLDialect
+#        show-sql: true
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 10MB
+            
+            
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAR3EICUY3NP7753O3
+      secret-key: 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
+    region:
+      static: us-east-1
+application:
+  bucket:
+    name:  techcoe-mambu-poc  
+            
+# Max file size (10 MB in this example)
+#spring.servlet.multipart.max-file-size=10MB
+# Max request size (10 MB in this example)
+#spring.servlet.multipart.max-request-size=10MB
+# configuring the eureka server
+eureka:
+    client:
+        service-url:
+            defaultZone: http://10.235.20.113:5001/eureka/
+        register-with-eureka: false
+        fetch-registry: false
+    instance:
+        hostname: documentverification
+        prefer-ip-address: true
+
+# enabling actuator info
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+ 
