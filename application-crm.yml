@@ -15,3 +15,22 @@ spring:
       ddl-auto: update
   jackson:
     default-property-inclusion: non-null
+#eureka server configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:4001/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+# enabling actuator info
+management:
+  endpoints:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: '*'
